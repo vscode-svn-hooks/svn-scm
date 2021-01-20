@@ -3,10 +3,10 @@ name: build
 on:
   push:
     branches:
-      - 'master'
+      - "master"
   pull_request:
-    branches: 
-      - '*'
+    branches:
+      - "*"
 
 jobs:
   build:
@@ -18,7 +18,7 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-latest, macOS-latest, windows-latest]
-        version: ['stable', 'insiders']
+        version: ["stable", "insiders"]
 
     steps:
       - name: Clone repository
@@ -27,12 +27,12 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v1
         with:
-          node-version: '12.17'
+          node-version: "12.17"
 
       - name: Install Dependencies
-        run: 'yarn install --frozen-lockfile || yarn install --frozen-lockfile'
+        run: "yarn install --frozen-lockfile || yarn install --frozen-lockfile"
         shell: bash
-      
+
       - name: Compile sources for tests
         run: yarn run test-compile
 
@@ -45,7 +45,7 @@ jobs:
           restore-keys: |
             vscode-${{ runner.os }}-${{ matrix.version }}-
             vscode-${{ runner.os }}-
-      
+
       - name: Run tests
         uses: GabrielBB/xvfb-action@v1.0
         with:
@@ -55,7 +55,7 @@ jobs:
         continue-on-error: ${{ matrix.version == 'insiders' }}
 
       - name: Release
-        if: startsWith(matrix.os, 'ubuntu') && matrix.version == 'stable' && github.ref == 'refs/heads/master' && github.repository == 'JohnstonCode/svn-scm'
+        if: startsWith(matrix.os, 'ubuntu') && matrix.version == 'stable' && github.ref == 'refs/heads/master' && github.repository == 'rroman6174/svn-scm'
         run: |
           yarn run organize
           yarn run semantic-release
@@ -79,10 +79,10 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v1
         with:
-          node-version: '12.17'
+          node-version: "12.17"
 
       - name: Install Dependencies
-        run: 'yarn install --frozen-lockfile || yarn install --frozen-lockfile'
+        run: "yarn install --frozen-lockfile || yarn install --frozen-lockfile"
         shell: bash
 
       - name: Lint check
@@ -99,10 +99,10 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v1
         with:
-          node-version: '12.17'
+          node-version: "12.17"
 
       - name: Install Dependencies
-        run: 'yarn install --frozen-lockfile || yarn install --frozen-lockfile'
+        run: "yarn install --frozen-lockfile || yarn install --frozen-lockfile"
         shell: bash
 
       - name: Package extension
