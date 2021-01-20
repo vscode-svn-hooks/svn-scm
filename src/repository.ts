@@ -53,6 +53,7 @@ import {
 import { match, matchAll } from "./util/globMatch";
 import { RepositoryFilesWatcher } from "./watchers/repositoryFilesWatcher";
 import { keytar } from "./vscodeModules";
+import { getRegisteredHooks } from "./hooks";
 
 function shouldShowProgress(operation: Operation): boolean {
   switch (operation) {
@@ -838,15 +839,45 @@ export class Repository implements IRemoteRepository {
   }
 
   public async commitFiles(message: string, files: any[]) {
-    return this.run(Operation.Commit, () =>
+    for (const svnHook of getRegisteredHooks()) {
+      if (svnHook.onPreCommit) {
+        await svnHook.onPreCommit(files);
+      }
+    }
+    const result = this.run(Operation.Commit, () =>
       this.repository.commitFiles(message, files)
     );
+    for (const svnHook of getRegisteredHooks()) {
+      if (svnHook.onPostCommit) {
+        try {
+          await svnHook.onPostCommit(files);
+        } catch (error) {
+          ("");
+        }
+      }
+    }
+    return result;
   }
 
   public async revert(files: string[], depth: keyof typeof SvnDepth) {
-    return this.run(Operation.Revert, () =>
+    for (const svnHook of getRegisteredHooks()) {
+      if (svnHook.onPreRevert) {
+        await svnHook.onPreRevert(files);
+      }
+    }
+    const result = this.run(Operation.Revert, () =>
       this.repository.revert(files, depth)
     );
+    for (const svnHook of getRegisteredHooks()) {
+      if (svnHook.onPostRevert) {
+        try {
+          await svnHook.onPostRevert(files);
+        } catch (error) {
+          ("");
+        }
+      }
+    }
+    return result;
   }
 
   public async info(path: string) {

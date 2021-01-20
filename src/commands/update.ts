@@ -1,5 +1,6 @@
 import { window } from "vscode";
 import { configuration } from "../helpers/configuration";
+import { getRegisteredHooks } from "../hooks";
 import { Repository } from "../repository";
 import { Command } from "./command";
 
@@ -20,6 +21,15 @@ export class Update extends Command {
       );
 
       const result = await repository.updateRevision(ignoreExternals);
+      for (const svnHook of getRegisteredHooks()) {
+        if (svnHook.onUpdate) {
+          try {
+            await svnHook.onUpdate();
+          } catch (error) {
+            ("");
+          }
+        }
+      }
 
       if (showUpdateMessage) {
         window.showInformationMessage(result);
