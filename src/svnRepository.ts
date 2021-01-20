@@ -825,7 +825,17 @@ export class Repository {
   }
 
   public async logByUser(user: string) {
-    const result = await this.exec(["log", "--xml", "-v", "--search", user]);
+    const config = workspace.getConfiguration("svn");
+    const logLimit = config.get<number>("userLogLimit") || 2000;
+    const result = await this.exec([
+      "log",
+      "--xml",
+      "-v",
+      "--limit",
+      logLimit.toString(),
+      "--search",
+      user
+    ]);
 
     return parseSvnLog(result.stdout);
   }

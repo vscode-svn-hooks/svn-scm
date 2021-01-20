@@ -1317,6 +1317,11 @@
           "type": "boolean",
           "description": "Set to ignore externals definitions on update (add --ignore-externals)",
           "default": true
+        },
+        "svn.userLogLimit": {
+          "type": "integer",
+          "description": "Number of log entries to go back when looking for user's previous commit messages.",
+          "default": 2000
         }
       }
     },
