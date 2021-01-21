@@ -1,5 +1,47 @@
 # Subversion source control for VS Code
 
+# Info
+This project is a fork of [JohnstonCode's VS Code SVN Extension](https://github.com/JohnstonCode/svn-scm) with the addition of an API that allows extension developers to contribute Client-side SVN Hooks.
+
+## Integrating with your extension
+Your extension will need to add the following dependancy to it's package.json
+
+```
+"extensionDependencies": [
+  "RobertRoman.svn-scm"
+]
+```
+This is necessary since extensions in vscode are lazy-loaded and there is no guarantee that this extension will be initialized and availible to provide the api before yours.
+
+# The API
+## Usage
+Copy the definitions from [svnHookApi.ts](./src/hooks/svnHookApi.ts) into your project.
+Register a hook by calling this extension's API with an SVNHook:
+
+```
+const svnApi: SVNHookApi = vscode.extensions.getExtension('RobertRoman.svn-scm')?.exports;
+api.registerHook(myHook);
+```
+
+### Blocking Hooks
+```
+onPreCommit?(documents: string[]): Promise<void>;
+onPreRevert?(documents: string[]): Promise<void>;
+```
+The `onPreCommit` and `onPreRevert` hooks your extension provides will be supplied with an array of strings
+of absolute Working Copy filepaths that are about to be committed/reverted. 
+If your async hook throws an error the action will be aborted and the user will not be allowed to commit/revert.
+
+### Non-Blocking Hooks
+```
+onPostCommit?(documents: string[]): Promise<void>;
+onPostRevert?(documents: string[]): Promise<void>;
+onUpdate?(): Promise<void>;
+```
+
+Errors thrown on Non-Blocking hooks will be ignored. The onUpdate hook does not pass back a list of files that were updated. This may change in the future.
+
+
 # Prerequisites
 
 > **Note**: This extension leverages your machine's SVN installation,\
