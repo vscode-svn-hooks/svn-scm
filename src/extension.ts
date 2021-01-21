@@ -25,6 +25,7 @@ import { IsSvn19orGreater } from "./contexts/isSvn19orGreater";
 import { IsSvn18orGreater } from "./contexts/isSvn18orGreater";
 import { tempSvnFs } from "./temp_svn_fs";
 import { SvnFileSystemProvider } from "./svnFileSystemProvider";
+import { registerHook, SVNHookApi } from "./hooks";
 
 async function init(
   _context: ExtensionContext,
@@ -155,6 +156,10 @@ export async function activate(context: ExtensionContext) {
   );
 
   await _activate(context, disposables).catch(err => console.error(err));
+  const api: SVNHookApi = {
+    registerHook: registerHook
+  };
+  return api;
 }
 
 // this method is called when your extension is deactivated
