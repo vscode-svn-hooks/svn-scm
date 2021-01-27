@@ -25,7 +25,8 @@ import { IsSvn19orGreater } from "./contexts/isSvn19orGreater";
 import { IsSvn18orGreater } from "./contexts/isSvn18orGreater";
 import { tempSvnFs } from "./temp_svn_fs";
 import { SvnFileSystemProvider } from "./svnFileSystemProvider";
-import { registerHook, SVNHookApi } from "./hooks";
+import { registerHook } from "./hooks";
+import { SVNHookApi } from "./hooks/svnHookApi";
 
 async function init(
   _context: ExtensionContext,
