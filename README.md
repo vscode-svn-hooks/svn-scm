@@ -3,6 +3,7 @@
 # Info
 This project is a fork of [JohnstonCode's VS Code SVN Extension](https://github.com/JohnstonCode/svn-scm) with the addition of an API that allows extension developers to contribute Client-side SVN Hooks.
 
+# The API
 ## Integrating with your extension
 Your extension will need to add the following dependancy to it's package.json
 
@@ -12,15 +13,20 @@ Your extension will need to add the following dependancy to it's package.json
 ]
 ```
 This is necessary since extensions in vscode are lazy-loaded and there is no guarantee that this extension will be initialized and availible to provide the api before yours.
-
-# The API
 ## Usage
-Copy the definitions from [svnHookApi.ts](./src/hooks/svnHookApi.ts) into your project.
+Import the definitions from [svnHookApi.ts](./src/hooks/svnHookApi.ts) into your project.
+
+```
+npm i "https://github.com/rroman6174/svn-scm.git"
+```
+
 Register a hook by calling this extension's API with an SVNHook:
 
 ```
+import {SVNHook, SVNHookApi} from 'svn-scm/src/hooks/svnHookApi';
+
 const svnApi: SVNHookApi = vscode.extensions.getExtension('RobertRoman.svn-scm')?.exports;
-api.registerHook(myHook);
+svnApi.registerHook(myHook);
 ```
 
 ### Blocking Hooks
