@@ -59,13 +59,13 @@
     "@types/semver": "^7.3.4",
     "@types/tmp": "0.2.0",
     "@types/vscode": "1.44.0",
-    "@types/xml2js": "^0.4.7",
-    "@typescript-eslint/eslint-plugin": "^4.14.0",
-    "@typescript-eslint/parser": "^4.14.0",
+    "@types/xml2js": "^0.4.8",
+    "@typescript-eslint/eslint-plugin": "^4.14.2",
+    "@typescript-eslint/parser": "^4.14.2",
     "chardet": "^1.3.0",
-    "dayjs": "^1.10.3",
+    "dayjs": "^1.10.4",
     "decache": "^4.6.0",
-    "eslint": "^7.18.0",
+    "eslint": "^7.19.0",
     "eslint-config-prettier": "^7.2.0",
     "eslint-plugin-prettier": "^3.3.1",
     "glob": "^7.1.4",
@@ -78,15 +78,15 @@
     "ovsx": "0.1.0-next.9321255",
     "prettier": "^2.2.1",
     "prettylint": "^1.0.0",
-    "semantic-release": "^17.3.4",
+    "semantic-release": "^17.3.7",
     "semantic-release-vsce": "^4.0.1",
     "semver": "^7.3.4",
     "tmp": "0.2.1",
-    "ts-loader": "^8.0.14",
+    "ts-loader": "^8.0.15",
     "typescript": "^4.1.3",
-    "vscode-test": "^1.4.1",
-    "webpack": "^5.16.0",
-    "webpack-cli": "^4.4.0",
+    "vscode-test": "^1.5.0",
+    "webpack": "^5.21.2",
+    "webpack-cli": "^4.5.0",
     "xml2js": "^0.4.19"
   },
   "config": {
@@ -484,68 +484,248 @@
         }
       }
     ],
-    "main": "./out/extension",
-    "scripts": {
-      "build": "yarn run build:ts && yarn run build:css",
-      "build:css": "yarn node-sass scss/ -o css/ --output-style compressed",
-      "build:ts": "webpack --mode production",
-      "compile": "webpack --mode development --watch",
-      "lint": "eslint \"src/**/*.ts\"",
-      "lint:fix": "yarn run lint --fix",
-      "organize": "node ./out/tools/organize.js",
-      "semantic-release": "semantic-release --yarn",
-      "style-check": "yarn prettylint 'src/**/*.ts'",
-      "style-fix": "yarn prettier --write \"src/**/*.ts\"",
-      "test": "node ./out/test/runTest.js",
-      "test-compile": "tsc -p ./",
-      "tools:genReadme": "node ./out/tools/generateConfigSectionForReadme.js",
-      "vscode:prepublish": "yarn run lint && yarn run build",
-      "watch:css": "yarn run build:css -w"
-    },
-    "dependencies": {},
-    "devDependencies": {
-      "@semantic-release/changelog": "^5.0.1",
-      "@semantic-release/git": "^9.0.0",
-      "@types/glob": "^7.1.3",
-      "@types/mocha": "^8.2.0",
-      "@types/node": "^12.11.7",
-      "@types/semver": "^7.3.4",
-      "@types/tmp": "0.2.0",
-      "@types/vscode": "1.44.0",
-      "@types/xml2js": "^0.4.8",
-      "@typescript-eslint/eslint-plugin": "^4.14.1",
-      "@typescript-eslint/parser": "^4.14.1",
-      "chardet": "^1.3.0",
-      "dayjs": "^1.10.4",
-      "decache": "^4.6.0",
-      "eslint": "^7.18.0",
-      "eslint-config-prettier": "^7.2.0",
-      "eslint-plugin-prettier": "^3.3.1",
-      "glob": "^7.1.4",
-      "iconv-lite-umd": "0.6.8",
-      "milligram": "^1.4.1",
-      "minimatch": "^3.0.4",
-      "mocha": "^8.2.1",
-      "node-sass": "^5.0.0",
-      "original-fs": "^1.0.0",
-      "ovsx": "0.1.0-next.9321255",
-      "prettier": "^2.2.1",
-      "prettylint": "^1.0.0",
-      "semantic-release": "^17.3.7",
-      "semantic-release-vsce": "^4.0.1",
-      "semver": "^7.3.4",
-      "tmp": "0.2.1",
-      "ts-loader": "^8.0.14",
-      "typescript": "^4.1.3",
-      "vscode-test": "^1.5.0",
-      "webpack": "^5.18.0",
-      "webpack-cli": "^4.4.0",
-      "xml2js": "^0.4.19"
-    },
-    "config": {
-      "commitizen": {
-        "path": "cz-conventional-changelog"
-      },
+    "menus": {
+      "commandPalette": [
+        {
+          "command": "svn.add",
+          "when": "config.svn.enabled && svnOpenRepositoryCount != 0"
+        },
+        {
+          "command": "svn.addToIgnoreExplorer",
+          "when": "false"
+        },
+        {
+          "command": "svn.addToIgnoreSCM",
+          "when": "false"
+        },
+        {
+          "command": "svn.branchchanges.openDiff",
+          "when": "false"
+        },
+        {
+          "command": "svn.branchchanges.refresh",
+          "when": "false"
+        },
+        {
+          "command": "svn.changelist",
+          "when": "config.svn.enabled && svnOpenRepositoryCount != 0"
+        },
+        {
+          "command": "svn.checkout",
+          "when": "config.svn.enabled"
+        },
+        {
+          "command": "svn.cleanup",
+          "when": "config.svn.enabled && svnOpenRepositoryCount != 0"
+        },
+        {
+          "command": "svn.close",
+          "when": "config.svn.enabled && svnOpenRepositoryCount != 0"
+        },
+        {
+          "command": "svn.commit",
+          "when": "config.svn.enabled && svnOpenRepositoryCount != 0"
+        },
+        {
+          "command": "svn.commitWithMessage",
+          "when": "false"
+        },
+        {
+          "command": "svn.deleteUnversioned",
+          "when": "false"
+        },
+        {
+          "command": "svn.itemlog.copymsg",
+          "when": "false"
+        },
+        {
+          "command": "svn.itemlog.copyrevision",
+          "when": "false"
+        },
+        {
+          "command": "svn.itemlog.openDiff",
+          "when": "false"
+        },
+        {
+          "command": "svn.itemlog.openDiffBase",
+          "when": "false"
+        },
+        {
+          "command": "svn.itemlog.openFileRemote",
+          "when": "false"
+        },
+        {
+          "command": "svn.itemlog.refresh",
+          "when": "false"
+        },
+        {
+          "command": "svn.log",
+          "when": "config.svn.enabled && svnOpenRepositoryCount != 0"
+        },
+        {
+          "command": "svn.openChangeBase",
+          "when": "config.svn.enabled && svnOpenRepositoryCount != 0 && svnActiveEditorHasChanges"
+        },
+        {
+          "command": "svn.openChangeHead",
+          "when": "config.svn.enabled && svnOpenRepositoryCount != 0 && svnActiveEditorHasChanges"
+        },
+        {
+          "command": "svn.openChangePrev",
+          "when": "false"
+        },
+        {
+          "command": "svn.openFile",
+          "when": "config.svn.enabled && svnOpenRepositoryCount != 0"
+        },
+        {
+          "command": "svn.openHEADFile",
+          "when": "config.svn.enabled && svnOpenRepositoryCount != 0"
+        },
+        {
+          "command": "svn.patch",
+          "when": "config.svn.enabled && svnOpenRepositoryCount != 0"
+        },
+        {
+          "command": "svn.patchAll",
+          "when": "config.svn.enabled && svnOpenRepositoryCount != 0"
+        },
+        {
+          "command": "svn.patchChangeList",
+          "when": "false"
+        },
+        {
+          "command": "svn.pickCommitMessage",
+          "when": "config.svn.enabled && svnOpenRepositoryCount != 0"
+        },
+        {
+          "command": "svn.refresh",
+          "when": "config.svn.enabled && svnOpenRepositoryCount != 0"
+        },
+        {
+          "command": "svn.refreshRemoteChanges",
+          "when": "config.svn.enabled && svnOpenRepositoryCount != 0"
+        },
+        {
+          "command": "svn.remove",
+          "when": "config.svn.enabled && svnOpenRepositoryCount != 0"
+        },
+        {
+          "command": "svn.removeUnversioned",
+          "when": "config.svn.enabled && svnOpenRepositoryCount != 0 && isSvn19orGreater"
+        },
+        {
+          "command": "svn.renameExplorer",
+          "when": "false"
+        },
+        {
+          "command": "svn.repolog.addrepolike",
+          "when": "false"
+        },
+        {
+          "command": "svn.repolog.copymsg",
+          "when": "false"
+        },
+        {
+          "command": "svn.repolog.copyrevision",
+          "when": "false"
+        },
+        {
+          "command": "svn.repolog.openDiff",
+          "when": "false"
+        },
+        {
+          "command": "svn.repolog.openFileLocal",
+          "when": "false"
+        },
+        {
+          "command": "svn.repolog.openFileRemote",
+          "when": "false"
+        },
+        {
+          "command": "svn.repolog.refresh",
+          "when": "false"
+        },
+        {
+          "command": "svn.repolog.remove",
+          "when": "false"
+        },
+        {
+          "command": "svn.resolve",
+          "when": "config.svn.enabled && svnOpenRepositoryCount != 0"
+        },
+        {
+          "command": "svn.resolveAll",
+          "when": "config.svn.enabled && svnOpenRepositoryCount != 0"
+        },
+        {
+          "command": "svn.revert",
+          "when": "config.svn.enabled && svnOpenRepositoryCount != 0"
+        },
+        {
+          "command": "svn.revertAll",
+          "when": "false"
+        },
+        {
+          "command": "svn.revertChange",
+          "when": "false"
+        },
+        {
+          "command": "svn.revertExplorer",
+          "when": "false"
+        },
+        {
+          "command": "svn.searchLogByRevision",
+          "when": "config.svn.enabled && svnOpenRepositoryCount != 0"
+        },
+        {
+          "command": "svn.searchLogByText",
+          "when": "config.svn.enabled && svnOpenRepositoryCount != 0 && isSvn18orGreater"
+        },
+        {
+          "command": "svn.switchBranch",
+          "when": "config.svn.enabled && svnOpenRepositoryCount != 0"
+        },
+        {
+          "command": "svn.treeview.pullIncomingChange",
+          "when": "false"
+        },
+        {
+          "command": "svn.treeview.refreshProvider",
+          "when": "false"
+        },
+        {
+          "command": "svn.update",
+          "when": "config.svn.enabled && svnOpenRepositoryCount != 0"
+        }
+      ],
+      "view/title": [
+        {
+          "command": "svn.treeview.refreshProvider",
+          "when": "view == svn",
+          "group": "navigation"
+        },
+        {
+          "command": "svn.repolog.refresh",
+          "when": "view == repolog",
+          "group": "navigation"
+        },
+        {
+          "command": "svn.repolog.addrepolike",
+          "when": "view == repolog",
+          "group": "navigation"
+        },
+        {
+          "command": "svn.itemlog.refresh",
+          "when": "view == itemlog",
+          "group": "navigation"
+        },
+        {
+          "command": "svn.branchchanges.refresh",
+          "when": "view == branchchanges",
+          "group": "navigation"
+        }
+      ],
       "view/item/context": [
         {
           "command": "svn.openHEADFile",
