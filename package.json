@@ -54,39 +54,39 @@
     "@semantic-release/changelog": "^5.0.1",
     "@semantic-release/git": "^9.0.0",
     "@types/glob": "^7.1.3",
-    "@types/mocha": "^8.2.0",
+    "@types/mocha": "^8.2.2",
     "@types/node": "^12.11.7",
-    "@types/semver": "^7.3.4",
+    "@types/semver": "^7.3.6",
     "@types/tmp": "0.2.0",
     "@types/vscode": "1.44.0",
     "@types/xml2js": "^0.4.8",
-    "@typescript-eslint/eslint-plugin": "^4.14.2",
-    "@typescript-eslint/parser": "^4.14.2",
+    "@typescript-eslint/eslint-plugin": "^4.28.0",
+    "@typescript-eslint/parser": "^4.28.0",
     "chardet": "^1.3.0",
-    "dayjs": "^1.10.4",
+    "dayjs": "^1.10.5",
     "decache": "^4.6.0",
-    "eslint": "^7.19.0",
+    "eslint": "^7.29.0",
     "eslint-config-prettier": "^7.2.0",
-    "eslint-plugin-prettier": "^3.3.1",
-    "glob": "^7.1.4",
+    "eslint-plugin-prettier": "^3.4.0",
+    "glob": "^7.1.7",
     "iconv-lite-umd": "0.6.8",
     "milligram": "^1.4.1",
     "minimatch": "^3.0.4",
-    "mocha": "^8.2.1",
-    "node-sass": "^5.0.0",
+    "mocha": "^9.0.1",
+    "node-sass": "^6.0.0",
     "original-fs": "^1.0.0",
-    "ovsx": "0.1.0-next.9321255",
+    "ovsx": "0.2.0",
     "prettier": "^2.2.1",
     "prettylint": "^1.0.0",
-    "semantic-release": "^17.3.7",
+    "semantic-release": "^17.4.4",
     "semantic-release-vsce": "^4.0.1",
-    "semver": "^7.3.4",
+    "semver": "^7.3.5",
     "tmp": "0.2.1",
-    "ts-loader": "^8.0.15",
-    "typescript": "^4.1.3",
-    "vscode-test": "^1.5.0",
-    "webpack": "^5.21.2",
-    "webpack-cli": "^4.5.0",
+    "ts-loader": "^9.2.3",
+    "typescript": "^4.3.4",
+    "vscode-test": "^1.5.2",
+    "webpack": "^5.40.0",
+    "webpack-cli": "^4.7.2",
     "xml2js": "^0.4.19"
   },
   "config": {
@@ -102,928 +102,928 @@
           "title": "Subversion",
           "icon": "icons/subversion-logo.svg"
         }
-      ]
-    },
-    "views": {
-      "explorer": [
-        {
-          "id": "svn",
-          "name": "SVN"
-        }
       ],
-      "svnActivity": [
-        {
-          "id": "repolog",
-          "name": "Repositories",
-          "when": "config.svn.enabled && svnOpenRepositoryCount != 0"
-        },
-        {
-          "id": "itemlog",
-          "name": "File History",
-          "when": "config.svn.enabled && svnOpenRepositoryCount != 0"
-        },
-        {
-          "id": "branchchanges",
-          "name": "Branch Changes",
-          "when": "config.svn.enabled && svnOpenRepositoryCount != 0"
-        }
-      ]
-    },
-    "commands": [
-      {
-        "command": "svn.add",
-        "title": "Add",
-        "category": "SVN",
-        "icon": {
-          "light": "icons/light/add.svg",
-          "dark": "icons/dark/add.svg"
-        }
+      "views": {
+        "explorer": [
+          {
+            "id": "svn",
+            "name": "SVN"
+          }
+        ],
+        "svnActivity": [
+          {
+            "id": "repolog",
+            "name": "Repositories",
+            "when": "config.svn.enabled && svnOpenRepositoryCount != 0"
+          },
+          {
+            "id": "itemlog",
+            "name": "File History",
+            "when": "config.svn.enabled && svnOpenRepositoryCount != 0"
+          },
+          {
+            "id": "branchchanges",
+            "name": "Branch Changes",
+            "when": "config.svn.enabled && svnOpenRepositoryCount != 0"
+          }
+        ]
       },
-      {
-        "command": "svn.addToIgnoreExplorer",
-        "title": "Ignore file/ext from SVN (svn:ignore)",
-        "category": "SVN"
-      },
-      {
-        "command": "svn.addToIgnoreSCM",
-        "title": "Ignore file/ext from SVN (svn:ignore)",
-        "category": "SVN"
-      },
-      {
-        "command": "svn.branchchanges.openDiff",
-        "category": "SVN",
-        "title": "Open diff"
-      },
-      {
-        "command": "svn.branchchanges.refresh",
-        "category": "SVN",
-        "title": "Refresh branch changes",
-        "icon": {
-          "dark": "icons/dark/refresh.svg",
-          "light": "icons/light/refresh.svg"
-        }
-      },
-      {
-        "command": "svn.changelist",
-        "title": "Set changelist",
-        "category": "SVN",
-        "icon": {
-          "light": "icons/light/changelist.svg",
-          "dark": "icons/dark/changelist.svg"
-        }
-      },
-      {
-        "command": "svn.checkout",
-        "title": "Checkout",
-        "category": "SVN"
-      },
-      {
-        "command": "svn.cleanup",
-        "title": "Clean up working copy",
-        "category": "SVN"
-      },
-      {
-        "command": "svn.close",
-        "title": "Close repository",
-        "category": "SVN"
-      },
-      {
-        "command": "svn.commit",
-        "title": "Commit Selected",
-        "category": "SVN",
-        "icon": {
-          "light": "icons/light/check.svg",
-          "dark": "icons/dark/check.svg"
-        }
-      },
-      {
-        "command": "svn.commitWithMessage",
-        "title": "Commit Changes",
-        "category": "SVN",
-        "icon": {
-          "light": "icons/light/check.svg",
-          "dark": "icons/dark/check.svg"
-        }
-      },
-      {
-        "command": "svn.deleteUnversioned",
-        "title": "Delete selected files",
-        "category": "SVN"
-      },
-      {
-        "command": "svn.itemlog.copymsg",
-        "category": "SVN",
-        "title": "Copy message"
-      },
-      {
-        "command": "svn.itemlog.copyrevision",
-        "category": "SVN",
-        "title": "Copy revision number"
-      },
-      {
-        "command": "svn.itemlog.openDiff",
-        "title": "Open diff",
-        "category": "SVN"
-      },
-      {
-        "command": "svn.itemlog.openDiffBase",
-        "title": "Open diff with BASE",
-        "category": "SVN"
-      },
-      {
-        "command": "svn.itemlog.openFileRemote",
-        "title": "Open this revision",
-        "category": "SVN"
-      },
-      {
-        "command": "svn.itemlog.refresh",
-        "category": "SVN",
-        "title": "Refresh log for item",
-        "icon": {
-          "dark": "icons/dark/refresh.svg",
-          "light": "icons/light/refresh.svg"
-        }
-      },
-      {
-        "command": "svn.log",
-        "title": "Show commit messages",
-        "category": "SVN"
-      },
-      {
-        "command": "svn.openChangeBase",
-        "title": "Open Changes with BASE",
-        "category": "SVN",
-        "icon": {
-          "light": "icons/light/open-change-base.svg",
-          "dark": "icons/dark/open-change-base.svg"
-        }
-      },
-      {
-        "command": "svn.openChangeHead",
-        "title": "Open Changes with HEAD",
-        "category": "SVN",
-        "icon": {
-          "light": "icons/light/open-change-head.svg",
-          "dark": "icons/dark/open-change-head.svg"
-        }
-      },
-      {
-        "command": "svn.openChangePrev",
-        "title": "Open Changes with PREV",
-        "category": "SVN"
-      },
-      {
-        "command": "svn.openFile",
-        "title": "Open File",
-        "category": "SVN",
-        "icon": {
-          "light": "icons/light/open-file.svg",
-          "dark": "icons/dark/open-file.svg"
-        }
-      },
-      {
-        "command": "svn.openHEADFile",
-        "title": "Open File (HEAD)",
-        "category": "SVN"
-      },
-      {
-        "command": "svn.patch",
-        "title": "Show diff patch for selected",
-        "category": "SVN"
-      },
-      {
-        "command": "svn.patchAll",
-        "title": "Show all diff patch",
-        "category": "SVN"
-      },
-      {
-        "command": "svn.patchChangeList",
-        "title": "Show patch from changelist",
-        "category": "SVN"
-      },
-      {
-        "command": "svn.pickCommitMessage",
-        "title": "Pick a previous commit message",
-        "category": "SVN",
-        "icon": {
-          "light": "icons/light/icon-history.svg",
-          "dark": "icons/dark/icon-history.svg"
-        }
-      },
-      {
-        "command": "svn.refresh",
-        "title": "Refresh",
-        "category": "SVN",
-        "icon": {
-          "light": "icons/light/refresh.svg",
-          "dark": "icons/dark/refresh.svg"
-        }
-      },
-      {
-        "command": "svn.refreshRemoteChanges",
-        "title": "Refresh Remote Changes",
-        "category": "SVN",
-        "icon": {
-          "light": "icons/light/refresh.svg",
-          "dark": "icons/dark/refresh.svg"
-        }
-      },
-      {
-        "command": "svn.remove",
-        "title": "Remove Selected",
-        "category": "SVN"
-      },
-      {
-        "command": "svn.removeUnversioned",
-        "title": "Remove unversioned files",
-        "category": "SVN"
-      },
-      {
-        "command": "svn.renameExplorer",
-        "title": "Rename with SVN",
-        "category": "SVN"
-      },
-      {
-        "command": "svn.repolog.addrepolike",
-        "category": "SVN",
-        "title": "Add repo-like path",
-        "icon": {
-          "dark": "icons/dark/add.svg",
-          "light": "icons/light/add.svg"
-        }
-      },
-      {
-        "command": "svn.repolog.copymsg",
-        "category": "SVN",
-        "title": "Copy message"
-      },
-      {
-        "command": "svn.repolog.copyrevision",
-        "category": "SVN",
-        "title": "Copy revision number"
-      },
-      {
-        "command": "svn.repolog.openDiff",
-        "category": "SVN",
-        "title": "Open diff"
-      },
-      {
-        "command": "svn.repolog.openFileLocal",
-        "category": "SVN",
-        "title": "Open WC version of a file"
-      },
-      {
-        "command": "svn.repolog.openFileRemote",
-        "category": "SVN",
-        "title": "Open this revision"
-      },
-      {
-        "command": "svn.repolog.refresh",
-        "category": "SVN",
-        "title": "Refresh log",
-        "icon": {
-          "dark": "icons/dark/refresh.svg",
-          "light": "icons/light/refresh.svg"
-        }
-      },
-      {
-        "command": "svn.repolog.remove",
-        "category": "SVN",
-        "title": "Remove"
-      },
-      {
-        "command": "svn.resolve",
-        "title": "Resolve conflicts for selected",
-        "category": "SVN",
-        "icon": {
-          "light": "icons/light/check.svg",
-          "dark": "icons/dark/check.svg"
-        }
-      },
-      {
-        "command": "svn.resolveAll",
-        "title": "Resolve all conflicts",
-        "category": "SVN"
-      },
-      {
-        "command": "svn.revert",
-        "title": "Revert Selected File",
-        "category": "SVN",
-        "icon": {
-          "light": "icons/light/clean.svg",
-          "dark": "icons/dark/clean.svg"
-        }
-      },
-      {
-        "command": "svn.revertAll",
-        "title": "Revert All Changes",
-        "category": "SVN",
-        "icon": {
-          "light": "icons/light/clean.svg",
-          "dark": "icons/dark/clean.svg"
-        }
-      },
-      {
-        "command": "svn.revertChange",
-        "title": "Revert Change",
-        "category": "SVN",
-        "icon": {
-          "light": "icons/light/clean.svg",
-          "dark": "icons/dark/clean.svg"
-        }
-      },
-      {
-        "command": "svn.revertExplorer",
-        "title": "Revert with SVN",
-        "category": "SVN",
-        "icon": {
-          "light": "icons/light/clean.svg",
-          "dark": "icons/dark/clean.svg"
-        }
-      },
-      {
-        "command": "svn.searchLogByRevision",
-        "title": "Search log by revision",
-        "category": "SVN"
-      },
-      {
-        "command": "svn.searchLogByText",
-        "title": "Search log",
-        "category": "SVN"
-      },
-      {
-        "command": "svn.switchBranch",
-        "title": "Switch Branch",
-        "category": "SVN"
-      },
-      {
-        "command": "svn.treeview.pullIncomingChange",
-        "title": "Update selected",
-        "category": "SVN",
-        "icon": {
-          "light": "icons/light/download.svg",
-          "dark": "icons/dark/download.svg"
-        }
-      },
-      {
-        "command": "svn.treeview.refreshProvider",
-        "title": "Refresh",
-        "category": "SVN",
-        "icon": {
-          "light": "icons/light/refresh.svg",
-          "dark": "icons/dark/refresh.svg"
-        }
-      },
-      {
-        "command": "svn.update",
-        "title": "Update",
-        "category": "SVN",
-        "icon": {
-          "light": "icons/light/download.svg",
-          "dark": "icons/dark/download.svg"
-        }
-      }
-    ],
-    "menus": {
-      "commandPalette": [
+      "commands": [
         {
           "command": "svn.add",
-          "when": "config.svn.enabled && svnOpenRepositoryCount != 0"
+          "title": "Add",
+          "category": "SVN",
+          "icon": {
+            "light": "icons/light/add.svg",
+            "dark": "icons/dark/add.svg"
+          }
         },
         {
           "command": "svn.addToIgnoreExplorer",
-          "when": "false"
+          "title": "Ignore file/ext from SVN (svn:ignore)",
+          "category": "SVN"
         },
         {
           "command": "svn.addToIgnoreSCM",
-          "when": "false"
+          "title": "Ignore file/ext from SVN (svn:ignore)",
+          "category": "SVN"
         },
         {
           "command": "svn.branchchanges.openDiff",
-          "when": "false"
+          "category": "SVN",
+          "title": "Open diff"
         },
         {
           "command": "svn.branchchanges.refresh",
-          "when": "false"
+          "category": "SVN",
+          "title": "Refresh branch changes",
+          "icon": {
+            "dark": "icons/dark/refresh.svg",
+            "light": "icons/light/refresh.svg"
+          }
         },
         {
           "command": "svn.changelist",
-          "when": "config.svn.enabled && svnOpenRepositoryCount != 0"
+          "title": "Set changelist",
+          "category": "SVN",
+          "icon": {
+            "light": "icons/light/changelist.svg",
+            "dark": "icons/dark/changelist.svg"
+          }
         },
         {
           "command": "svn.checkout",
-          "when": "config.svn.enabled"
+          "title": "Checkout",
+          "category": "SVN"
         },
         {
           "command": "svn.cleanup",
-          "when": "config.svn.enabled && svnOpenRepositoryCount != 0"
+          "title": "Clean up working copy",
+          "category": "SVN"
         },
         {
           "command": "svn.close",
-          "when": "config.svn.enabled && svnOpenRepositoryCount != 0"
+          "title": "Close repository",
+          "category": "SVN"
         },
         {
           "command": "svn.commit",
-          "when": "config.svn.enabled && svnOpenRepositoryCount != 0"
+          "title": "Commit Selected",
+          "category": "SVN",
+          "icon": {
+            "light": "icons/light/check.svg",
+            "dark": "icons/dark/check.svg"
+          }
         },
         {
           "command": "svn.commitWithMessage",
-          "when": "false"
+          "title": "Commit Changes",
+          "category": "SVN",
+          "icon": {
+            "light": "icons/light/check.svg",
+            "dark": "icons/dark/check.svg"
+          }
         },
         {
           "command": "svn.deleteUnversioned",
-          "when": "false"
+          "title": "Delete selected files",
+          "category": "SVN"
         },
         {
           "command": "svn.itemlog.copymsg",
-          "when": "false"
+          "category": "SVN",
+          "title": "Copy message"
         },
         {
           "command": "svn.itemlog.copyrevision",
-          "when": "false"
+          "category": "SVN",
+          "title": "Copy revision number"
         },
         {
           "command": "svn.itemlog.openDiff",
-          "when": "false"
+          "title": "Open diff",
+          "category": "SVN"
         },
         {
           "command": "svn.itemlog.openDiffBase",
-          "when": "false"
+          "title": "Open diff with BASE",
+          "category": "SVN"
         },
         {
           "command": "svn.itemlog.openFileRemote",
-          "when": "false"
+          "title": "Open this revision",
+          "category": "SVN"
         },
         {
           "command": "svn.itemlog.refresh",
-          "when": "false"
+          "category": "SVN",
+          "title": "Refresh log for item",
+          "icon": {
+            "dark": "icons/dark/refresh.svg",
+            "light": "icons/light/refresh.svg"
+          }
         },
         {
           "command": "svn.log",
-          "when": "config.svn.enabled && svnOpenRepositoryCount != 0"
+          "title": "Show commit messages",
+          "category": "SVN"
         },
         {
           "command": "svn.openChangeBase",
-          "when": "config.svn.enabled && svnOpenRepositoryCount != 0 && svnActiveEditorHasChanges"
+          "title": "Open Changes with BASE",
+          "category": "SVN",
+          "icon": {
+            "light": "icons/light/open-change-base.svg",
+            "dark": "icons/dark/open-change-base.svg"
+          }
         },
         {
           "command": "svn.openChangeHead",
-          "when": "config.svn.enabled && svnOpenRepositoryCount != 0 && svnActiveEditorHasChanges"
+          "title": "Open Changes with HEAD",
+          "category": "SVN",
+          "icon": {
+            "light": "icons/light/open-change-head.svg",
+            "dark": "icons/dark/open-change-head.svg"
+          }
         },
         {
           "command": "svn.openChangePrev",
-          "when": "false"
+          "title": "Open Changes with PREV",
+          "category": "SVN"
         },
         {
           "command": "svn.openFile",
-          "when": "config.svn.enabled && svnOpenRepositoryCount != 0"
+          "title": "Open File",
+          "category": "SVN",
+          "icon": {
+            "light": "icons/light/open-file.svg",
+            "dark": "icons/dark/open-file.svg"
+          }
         },
         {
           "command": "svn.openHEADFile",
-          "when": "config.svn.enabled && svnOpenRepositoryCount != 0"
+          "title": "Open File (HEAD)",
+          "category": "SVN"
         },
         {
           "command": "svn.patch",
-          "when": "config.svn.enabled && svnOpenRepositoryCount != 0"
+          "title": "Show diff patch for selected",
+          "category": "SVN"
         },
         {
           "command": "svn.patchAll",
-          "when": "config.svn.enabled && svnOpenRepositoryCount != 0"
+          "title": "Show all diff patch",
+          "category": "SVN"
         },
         {
           "command": "svn.patchChangeList",
-          "when": "false"
+          "title": "Show patch from changelist",
+          "category": "SVN"
         },
         {
           "command": "svn.pickCommitMessage",
-          "when": "config.svn.enabled && svnOpenRepositoryCount != 0"
+          "title": "Pick a previous commit message",
+          "category": "SVN",
+          "icon": {
+            "light": "icons/light/icon-history.svg",
+            "dark": "icons/dark/icon-history.svg"
+          }
         },
         {
           "command": "svn.refresh",
-          "when": "config.svn.enabled && svnOpenRepositoryCount != 0"
+          "title": "Refresh",
+          "category": "SVN",
+          "icon": {
+            "light": "icons/light/refresh.svg",
+            "dark": "icons/dark/refresh.svg"
+          }
         },
         {
           "command": "svn.refreshRemoteChanges",
-          "when": "config.svn.enabled && svnOpenRepositoryCount != 0"
+          "title": "Refresh Remote Changes",
+          "category": "SVN",
+          "icon": {
+            "light": "icons/light/refresh.svg",
+            "dark": "icons/dark/refresh.svg"
+          }
         },
         {
           "command": "svn.remove",
-          "when": "config.svn.enabled && svnOpenRepositoryCount != 0"
+          "title": "Remove Selected",
+          "category": "SVN"
         },
         {
           "command": "svn.removeUnversioned",
-          "when": "config.svn.enabled && svnOpenRepositoryCount != 0 && isSvn19orGreater"
+          "title": "Remove unversioned files",
+          "category": "SVN"
         },
         {
           "command": "svn.renameExplorer",
-          "when": "false"
+          "title": "Rename with SVN",
+          "category": "SVN"
         },
         {
           "command": "svn.repolog.addrepolike",
-          "when": "false"
+          "category": "SVN",
+          "title": "Add repo-like path",
+          "icon": {
+            "dark": "icons/dark/add.svg",
+            "light": "icons/light/add.svg"
+          }
         },
         {
           "command": "svn.repolog.copymsg",
-          "when": "false"
+          "category": "SVN",
+          "title": "Copy message"
         },
         {
           "command": "svn.repolog.copyrevision",
-          "when": "false"
+          "category": "SVN",
+          "title": "Copy revision number"
         },
         {
           "command": "svn.repolog.openDiff",
-          "when": "false"
+          "category": "SVN",
+          "title": "Open diff"
         },
         {
           "command": "svn.repolog.openFileLocal",
-          "when": "false"
+          "category": "SVN",
+          "title": "Open WC version of a file"
         },
         {
           "command": "svn.repolog.openFileRemote",
-          "when": "false"
+          "category": "SVN",
+          "title": "Open this revision"
         },
         {
           "command": "svn.repolog.refresh",
-          "when": "false"
+          "category": "SVN",
+          "title": "Refresh log",
+          "icon": {
+            "dark": "icons/dark/refresh.svg",
+            "light": "icons/light/refresh.svg"
+          }
         },
         {
           "command": "svn.repolog.remove",
-          "when": "false"
+          "category": "SVN",
+          "title": "Remove"
         },
         {
           "command": "svn.resolve",
-          "when": "config.svn.enabled && svnOpenRepositoryCount != 0"
+          "title": "Resolve conflicts for selected",
+          "category": "SVN",
+          "icon": {
+            "light": "icons/light/check.svg",
+            "dark": "icons/dark/check.svg"
+          }
         },
         {
           "command": "svn.resolveAll",
-          "when": "config.svn.enabled && svnOpenRepositoryCount != 0"
+          "title": "Resolve all conflicts",
+          "category": "SVN"
         },
         {
           "command": "svn.revert",
-          "when": "config.svn.enabled && svnOpenRepositoryCount != 0"
+          "title": "Revert Selected File",
+          "category": "SVN",
+          "icon": {
+            "light": "icons/light/clean.svg",
+            "dark": "icons/dark/clean.svg"
+          }
         },
         {
           "command": "svn.revertAll",
-          "when": "false"
+          "title": "Revert All Changes",
+          "category": "SVN",
+          "icon": {
+            "light": "icons/light/clean.svg",
+            "dark": "icons/dark/clean.svg"
+          }
         },
         {
           "command": "svn.revertChange",
-          "when": "false"
+          "title": "Revert Change",
+          "category": "SVN",
+          "icon": {
+            "light": "icons/light/clean.svg",
+            "dark": "icons/dark/clean.svg"
+          }
         },
         {
           "command": "svn.revertExplorer",
-          "when": "false"
+          "title": "Revert with SVN",
+          "category": "SVN",
+          "icon": {
+            "light": "icons/light/clean.svg",
+            "dark": "icons/dark/clean.svg"
+          }
         },
         {
           "command": "svn.searchLogByRevision",
-          "when": "config.svn.enabled && svnOpenRepositoryCount != 0"
+          "title": "Search log by revision",
+          "category": "SVN"
         },
         {
           "command": "svn.searchLogByText",
-          "when": "config.svn.enabled && svnOpenRepositoryCount != 0 && isSvn18orGreater"
+          "title": "Search log",
+          "category": "SVN"
         },
         {
           "command": "svn.switchBranch",
-          "when": "config.svn.enabled && svnOpenRepositoryCount != 0"
+          "title": "Switch Branch",
+          "category": "SVN"
         },
         {
           "command": "svn.treeview.pullIncomingChange",
-          "when": "false"
+          "title": "Update selected",
+          "category": "SVN",
+          "icon": {
+            "light": "icons/light/download.svg",
+            "dark": "icons/dark/download.svg"
+          }
         },
         {
           "command": "svn.treeview.refreshProvider",
-          "when": "false"
+          "title": "Refresh",
+          "category": "SVN",
+          "icon": {
+            "light": "icons/light/refresh.svg",
+            "dark": "icons/dark/refresh.svg"
+          }
         },
         {
           "command": "svn.update",
-          "when": "config.svn.enabled && svnOpenRepositoryCount != 0"
+          "title": "Update",
+          "category": "SVN",
+          "icon": {
+            "light": "icons/light/download.svg",
+            "dark": "icons/dark/download.svg"
+          }
         }
       ],
-      "view/title": [
-        {
-          "command": "svn.treeview.refreshProvider",
-          "when": "view == svn",
-          "group": "navigation"
-        },
-        {
-          "command": "svn.repolog.refresh",
-          "when": "view == repolog",
-          "group": "navigation"
-        },
-        {
-          "command": "svn.repolog.addrepolike",
-          "when": "view == repolog",
-          "group": "navigation"
-        },
-        {
-          "command": "svn.itemlog.refresh",
-          "when": "view == itemlog",
-          "group": "navigation"
-        },
-        {
-          "command": "svn.branchchanges.refresh",
-          "when": "view == branchchanges",
-          "group": "navigation"
-        }
-      ],
-      "view/item/context": [
-        {
-          "command": "svn.openHEADFile",
-          "when": "viewItem =~ /incomingChange:(added|modified)/"
-        },
-        {
-          "command": "svn.openFile",
-          "when": "viewItem =~ /incomingChange:(modified|deleted)/"
-        },
-        {
-          "command": "svn.treeview.pullIncomingChange",
-          "when": "viewItem =~ /incomingChange:*/"
-        },
-        {
-          "command": "svn.openChangeHead",
-          "when": "viewItem == incomingChange:modified"
-        },
-        {
-          "command": "svn.repolog.remove",
-          "when": "view == repolog && viewItem == userrepo"
-        },
-        {
-          "command": "svn.itemlog.openFileRemote",
-          "when": "view == itemlog && viewItem == diffable"
-        },
-        {
-          "command": "svn.itemlog.openDiff",
-          "when": "view == itemlog && viewItem == diffable",
-          "group": "1_diff"
-        },
-        {
-          "command": "svn.itemlog.openDiffBase",
-          "when": "view == itemlog && viewItem == diffable",
-          "group": "1_diff"
-        },
-        {
-          "command": "svn.itemlog.copymsg",
-          "when": "view == itemlog && viewItem == diffable"
-        },
-        {
-          "command": "svn.itemlog.copyrevision",
-          "when": "view == itemlog && viewItem == diffable"
-        },
-        {
-          "command": "svn.repolog.openDiff",
-          "when": "view == repolog && viewItem == diffable"
-        },
-        {
-          "command": "svn.repolog.openFileRemote",
-          "when": "view == repolog && viewItem == diffable"
-        },
-        {
-          "command": "svn.repolog.openFileLocal",
-          "when": "view == repolog && viewItem == diffable"
-        },
-        {
-          "command": "svn.repolog.refresh",
-          "when": "view == repolog && viewItem =~ /.*repo/"
-        },
-        {
-          "command": "svn.repolog.copymsg",
-          "when": "view == repolog && viewItem == commit"
-        },
-        {
-          "command": "svn.repolog.copyrevision",
-          "when": "view == repolog && viewItem == commit"
-        }
-      ],
-      "scm/title": [
-        {
-          "command": "svn.commitWithMessage",
-          "group": "navigation",
-          "when": "config.svn.enabled && scmProvider == svn"
-        },
-        {
-          "command": "svn.refresh",
-          "group": "navigation",
-          "when": "config.svn.enabled && scmProvider == svn"
-        },
-        {
-          "command": "svn.pickCommitMessage",
-          "group": "navigation",
-          "when": "config.svn.enabled && scmProvider == svn"
-        },
-        {
-          "command": "svn.switchBranch",
-          "when": "config.svn.enabled && scmProvider == svn"
-        },
-        {
-          "command": "svn.update",
-          "when": "config.svn.enabled && scmProvider == svn"
-        },
-        {
-          "command": "svn.patchAll",
-          "when": "config.svn.enabled && scmProvider == svn"
-        },
-        {
-          "command": "svn.resolveAll",
-          "when": "config.svn.enabled && scmProvider == svn"
-        },
-        {
-          "command": "svn.log",
-          "when": "config.svn.enabled && scmProvider == svn"
-        },
-        {
-          "command": "svn.cleanup",
-          "when": "config.svn.enabled && scmProvider == svn"
-        },
-        {
-          "command": "svn.removeUnversioned",
-          "when": "config.svn.enabled && scmProvider == svn && isSvn19orGreater"
-        },
-        {
-          "command": "svn.patchChangeList",
-          "when": "config.svn.enabled && scmProvider == svn"
-        }
-      ],
-      "scm/sourceControl": [
-        {
-          "command": "svn.close",
-          "group": "navigation",
-          "when": "scmProvider == svn"
-        }
-      ],
-      "scm/resourceGroup/context": [
-        {
-          "command": "svn.refreshRemoteChanges",
-          "when": "config.svn.enabled && scmProvider == svn && scmResourceGroup == remotechanges",
-          "group": "inline"
-        },
-        {
-          "command": "svn.refreshRemoteChanges",
-          "when": "config.svn.enabled && scmProvider == svn && scmResourceGroup == remotechanges",
-          "group": "navigation"
-        },
-        {
-          "command": "svn.update",
-          "when": "config.svn.enabled && scmProvider == svn && scmResourceGroup == remotechanges",
-          "group": "inline"
-        },
-        {
-          "command": "svn.update",
-          "when": "config.svn.enabled && scmProvider == svn && scmResourceGroup == remotechanges",
-          "group": "navigation"
-        },
-        {
-          "command": "svn.revertAll",
-          "when": "config.svn.enabled && scmProvider == svn && scmResourceGroup == changes",
-          "group": "navigation"
-        },
-        {
-          "command": "svn.revertAll",
-          "when": "config.svn.enabled && scmProvider == svn && scmResourceGroup == changes",
-          "group": "inline"
-        }
-      ],
-      "scm/resourceState/context": [
-        {
-          "command": "svn.add",
-          "when": "config.svn.enabled && scmProvider == svn && scmResourceGroup == unversioned",
-          "group": "inline"
-        },
-        {
-          "command": "svn.add",
-          "when": "config.svn.enabled && scmProvider == svn && scmResourceGroup == unversioned",
-          "group": "1_modification"
-        },
-        {
-          "command": "svn.openFile",
-          "when": "config.svn.enabled && scmProvider == svn && scmResourceGroup != external",
-          "group": "navigation"
-        },
-        {
-          "command": "svn.openHEADFile",
-          "when": "config.svn.enabled && scmProvider == svn && scmResourceGroup != unversioned && scmResourceGroup != external",
-          "group": "navigation"
-        },
-        {
-          "command": "svn.openChangeBase",
-          "when": "config.svn.enabled && scmProvider == svn && scmResourceGroup != unversioned && scmResourceGroup != external",
-          "group": "navigation"
-        },
-        {
-          "command": "svn.openChangeHead",
-          "when": "config.svn.enabled && scmProvider == svn && scmResourceGroup != unversioned && scmResourceGroup != external",
-          "group": "navigation"
-        },
-        {
-          "command": "svn.patch",
-          "when": "config.svn.enabled && scmProvider == svn && scmResourceGroup != unversioned && scmResourceGroup != external && scmResourceGroup != conflicts && scmResourceGroup != remotechanges",
-          "group": "navigation"
-        },
-        {
-          "command": "svn.resolve",
-          "when": "config.svn.enabled && scmProvider == svn && scmResourceGroup == conflicts",
-          "group": "inline"
-        },
-        {
-          "command": "svn.resolve",
-          "when": "config.svn.enabled && scmProvider == svn && scmResourceGroup == conflicts",
-          "group": "1_modification"
-        },
-        {
-          "command": "svn.changelist",
-          "when": "config.svn.enabled && scmProvider == svn && scmResourceGroup != unversioned && scmResourceGroup != external && scmResourceGroup != conflicts && scmResourceGroup != remotechanges",
-          "group": "inline"
-        },
-        {
-          "command": "svn.changelist",
-          "when": "config.svn.enabled && scmProvider == svn && scmResourceGroup != unversioned && scmResourceGroup != external && scmResourceGroup != conflicts && scmResourceGroup != remotechanges",
-          "group": "1_modification"
-        },
-        {
-          "command": "svn.commit",
-          "when": "config.svn.enabled && scmProvider == svn && scmResourceGroup != unversioned && scmResourceGroup != external && scmResourceGroup != conflicts && scmResourceGroup != remotechanges",
-          "group": "1_modification"
-        },
-        {
-          "command": "svn.revert",
-          "when": "config.svn.enabled && scmProvider == svn && scmResourceGroup != unversioned && scmResourceGroup != external && scmResourceGroup != conflicts && scmResourceGroup != remotechanges",
-          "group": "2_modification"
-        },
-        {
-          "command": "svn.revert",
-          "when": "config.svn.enabled && scmProvider == svn && scmResourceGroup != unversioned && scmResourceGroup != external && scmResourceGroup != conflicts && scmResourceGroup != remotechanges",
-          "group": "inline"
-        },
-        {
-          "command": "svn.remove",
-          "when": "config.svn.enabled && scmProvider == svn && scmResourceGroup != unversioned && scmResourceGroup != external && scmResourceGroup != conflicts && scmResourceGroup != remotechanges",
-          "group": "2_modification"
-        },
-        {
-          "command": "svn.deleteUnversioned",
-          "when": "config.svn.enabled && scmProvider == svn && scmResourceGroup == unversioned",
-          "group": "2_modification"
-        },
-        {
-          "command": "svn.addToIgnoreSCM",
-          "when": "config.svn.enabled && scmProvider == svn && scmResourceGroup == unversioned",
-          "group": "1_modification"
-        },
-        {
-          "command": "svn.treeview.pullIncomingChange",
-          "when": "config.svn.enabled && scmProvider == svn && scmResourceGroup == remotechanges",
-          "group": "inline"
-        },
-        {
-          "command": "svn.treeview.pullIncomingChange",
-          "when": "config.svn.enabled && scmProvider == svn && scmResourceGroup == remotechanges",
-          "group": "3_modification"
-        }
-      ],
-      "scm/change/title": [
-        {
-          "command": "svn.revertChange",
-          "when": "config.svn.enabled && originalResourceScheme == svn"
-        }
-      ],
-      "editor/title": [
-        {
-          "command": "svn.openFile",
-          "group": "navigation",
-          "when": "config.svn.enabled && svnOpenRepositoryCount != 0 && isInDiffEditor && resourceScheme != extension && resourceScheme != merge-conflicts.conflicts-diff"
-        },
-        {
-          "command": "svn.openChangeBase",
-          "group": "navigation",
-          "when": "config.svn.enabled && svnOpenRepositoryCount != 0 && svnActiveEditorHasChanges && !isInDiffEditor && resourceScheme == file"
-        },
-        {
-          "command": "svn.openChangeHead",
-          "group": "navigation",
-          "when": "config.svn.enabled && svnOpenRepositoryCount != 0 && svnActiveEditorHasChanges && !isInDiffEditor && resourceScheme == file"
-        }
-      ],
-      "explorer/context": [
-        {
-          "command": "svn.addToIgnoreExplorer",
-          "group": "9_svn",
-          "when": "config.svn.enabled && svnOpenRepositoryCount != 0"
-        },
-        {
-          "command": "svn.renameExplorer",
-          "group": "7_modification",
-          "when": "config.svn.enabled && svnOpenRepositoryCount != 0 && explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !inputFocus"
-        },
-        {
-          "command": "svn.changelist",
-          "group": "9_svn",
-          "when": "config.svn.enabled && svnOpenRepositoryCount != 0"
-        },
-        {
-          "command": "svn.revertExplorer",
-          "group": "7_modification",
-          "when": "config.svn.enabled && svnOpenRepositoryCount != 0"
-        }
-      ]
+      "menus": {
+        "commandPalette": [
+          {
+            "command": "svn.add",
+            "when": "config.svn.enabled && svnOpenRepositoryCount != 0"
+          },
+          {
+            "command": "svn.addToIgnoreExplorer",
+            "when": "false"
+          },
+          {
+            "command": "svn.addToIgnoreSCM",
+            "when": "false"
+          },
+          {
+            "command": "svn.branchchanges.openDiff",
+            "when": "false"
+          },
+          {
+            "command": "svn.branchchanges.refresh",
+            "when": "false"
+          },
+          {
+            "command": "svn.changelist",
+            "when": "config.svn.enabled && svnOpenRepositoryCount != 0"
+          },
+          {
+            "command": "svn.checkout",
+            "when": "config.svn.enabled"
+          },
+          {
+            "command": "svn.cleanup",
+            "when": "config.svn.enabled && svnOpenRepositoryCount != 0"
+          },
+          {
+            "command": "svn.close",
+            "when": "config.svn.enabled && svnOpenRepositoryCount != 0"
+          },
+          {
+            "command": "svn.commit",
+            "when": "config.svn.enabled && svnOpenRepositoryCount != 0"
+          },
+          {
+            "command": "svn.commitWithMessage",
+            "when": "false"
+          },
+          {
+            "command": "svn.deleteUnversioned",
+            "when": "false"
+          },
+          {
+            "command": "svn.itemlog.copymsg",
+            "when": "false"
+          },
+          {
+            "command": "svn.itemlog.copyrevision",
+            "when": "false"
+          },
+          {
+            "command": "svn.itemlog.openDiff",
+            "when": "false"
+          },
+          {
+            "command": "svn.itemlog.openDiffBase",
+            "when": "false"
+          },
+          {
+            "command": "svn.itemlog.openFileRemote",
+            "when": "false"
+          },
+          {
+            "command": "svn.itemlog.refresh",
+            "when": "false"
+          },
+          {
+            "command": "svn.log",
+            "when": "config.svn.enabled && svnOpenRepositoryCount != 0"
+          },
+          {
+            "command": "svn.openChangeBase",
+            "when": "config.svn.enabled && svnOpenRepositoryCount != 0 && svnActiveEditorHasChanges"
+          },
+          {
+            "command": "svn.openChangeHead",
+            "when": "config.svn.enabled && svnOpenRepositoryCount != 0 && svnActiveEditorHasChanges"
+          },
+          {
+            "command": "svn.openChangePrev",
+            "when": "false"
+          },
+          {
+            "command": "svn.openFile",
+            "when": "config.svn.enabled && svnOpenRepositoryCount != 0"
+          },
+          {
+            "command": "svn.openHEADFile",
+            "when": "config.svn.enabled && svnOpenRepositoryCount != 0"
+          },
+          {
+            "command": "svn.patch",
+            "when": "config.svn.enabled && svnOpenRepositoryCount != 0"
+          },
+          {
+            "command": "svn.patchAll",
+            "when": "config.svn.enabled && svnOpenRepositoryCount != 0"
+          },
+          {
+            "command": "svn.patchChangeList",
+            "when": "false"
+          },
+          {
+            "command": "svn.pickCommitMessage",
+            "when": "config.svn.enabled && svnOpenRepositoryCount != 0"
+          },
+          {
+            "command": "svn.refresh",
+            "when": "config.svn.enabled && svnOpenRepositoryCount != 0"
+          },
+          {
+            "command": "svn.refreshRemoteChanges",
+            "when": "config.svn.enabled && svnOpenRepositoryCount != 0"
+          },
+          {
+            "command": "svn.remove",
+            "when": "config.svn.enabled && svnOpenRepositoryCount != 0"
+          },
+          {
+            "command": "svn.removeUnversioned",
+            "when": "config.svn.enabled && svnOpenRepositoryCount != 0 && isSvn19orGreater"
+          },
+          {
+            "command": "svn.renameExplorer",
+            "when": "false"
+          },
+          {
+            "command": "svn.repolog.addrepolike",
+            "when": "false"
+          },
+          {
+            "command": "svn.repolog.copymsg",
+            "when": "false"
+          },
+          {
+            "command": "svn.repolog.copyrevision",
+            "when": "false"
+          },
+          {
+            "command": "svn.repolog.openDiff",
+            "when": "false"
+          },
+          {
+            "command": "svn.repolog.openFileLocal",
+            "when": "false"
+          },
+          {
+            "command": "svn.repolog.openFileRemote",
+            "when": "false"
+          },
+          {
+            "command": "svn.repolog.refresh",
+            "when": "false"
+          },
+          {
+            "command": "svn.repolog.remove",
+            "when": "false"
+          },
+          {
+            "command": "svn.resolve",
+            "when": "config.svn.enabled && svnOpenRepositoryCount != 0"
+          },
+          {
+            "command": "svn.resolveAll",
+            "when": "config.svn.enabled && svnOpenRepositoryCount != 0"
+          },
+          {
+            "command": "svn.revert",
+            "when": "config.svn.enabled && svnOpenRepositoryCount != 0"
+          },
+          {
+            "command": "svn.revertAll",
+            "when": "false"
+          },
+          {
+            "command": "svn.revertChange",
+            "when": "false"
+          },
+          {
+            "command": "svn.revertExplorer",
+            "when": "false"
+          },
+          {
+            "command": "svn.searchLogByRevision",
+            "when": "config.svn.enabled && svnOpenRepositoryCount != 0"
+          },
+          {
+            "command": "svn.searchLogByText",
+            "when": "config.svn.enabled && svnOpenRepositoryCount != 0 && isSvn18orGreater"
+          },
+          {
+            "command": "svn.switchBranch",
+            "when": "config.svn.enabled && svnOpenRepositoryCount != 0"
+          },
+          {
+            "command": "svn.treeview.pullIncomingChange",
+            "when": "false"
+          },
+          {
+            "command": "svn.treeview.refreshProvider",
+            "when": "false"
+          },
+          {
+            "command": "svn.update",
+            "when": "config.svn.enabled && svnOpenRepositoryCount != 0"
+          }
+        ],
+        "view/title": [
+          {
+            "command": "svn.treeview.refreshProvider",
+            "when": "view == svn",
+            "group": "navigation"
+          },
+          {
+            "command": "svn.repolog.refresh",
+            "when": "view == repolog",
+            "group": "navigation"
+          },
+          {
+            "command": "svn.repolog.addrepolike",
+            "when": "view == repolog",
+            "group": "navigation"
+          },
+          {
+            "command": "svn.itemlog.refresh",
+            "when": "view == itemlog",
+            "group": "navigation"
+          },
+          {
+            "command": "svn.branchchanges.refresh",
+            "when": "view == branchchanges",
+            "group": "navigation"
+          }
+        ],
+        "view/item/context": [
+          {
+            "command": "svn.openHEADFile",
+            "when": "viewItem =~ /incomingChange:(added|modified)/"
+          },
+          {
+            "command": "svn.openFile",
+            "when": "viewItem =~ /incomingChange:(modified|deleted)/"
+          },
+          {
+            "command": "svn.treeview.pullIncomingChange",
+            "when": "viewItem =~ /incomingChange:*/"
+          },
+          {
+            "command": "svn.openChangeHead",
+            "when": "viewItem == incomingChange:modified"
+          },
+          {
+            "command": "svn.repolog.remove",
+            "when": "view == repolog && viewItem == userrepo"
+          },
+          {
+            "command": "svn.itemlog.openFileRemote",
+            "when": "view == itemlog && viewItem == diffable"
+          },
+          {
+            "command": "svn.itemlog.openDiff",
+            "when": "view == itemlog && viewItem == diffable",
+            "group": "1_diff"
+          },
+          {
+            "command": "svn.itemlog.openDiffBase",
+            "when": "view == itemlog && viewItem == diffable",
+            "group": "1_diff"
+          },
+          {
+            "command": "svn.itemlog.copymsg",
+            "when": "view == itemlog && viewItem == diffable"
+          },
+          {
+            "command": "svn.itemlog.copyrevision",
+            "when": "view == itemlog && viewItem == diffable"
+          },
+          {
+            "command": "svn.repolog.openDiff",
+            "when": "view == repolog && viewItem == diffable"
+          },
+          {
+            "command": "svn.repolog.openFileRemote",
+            "when": "view == repolog && viewItem == diffable"
+          },
+          {
+            "command": "svn.repolog.openFileLocal",
+            "when": "view == repolog && viewItem == diffable"
+          },
+          {
+            "command": "svn.repolog.refresh",
+            "when": "view == repolog && viewItem =~ /.*repo/"
+          },
+          {
+            "command": "svn.repolog.copymsg",
+            "when": "view == repolog && viewItem == commit"
+          },
+          {
+            "command": "svn.repolog.copyrevision",
+            "when": "view == repolog && viewItem == commit"
+          }
+        ],
+        "scm/title": [
+          {
+            "command": "svn.commitWithMessage",
+            "group": "navigation",
+            "when": "config.svn.enabled && scmProvider == svn"
+          },
+          {
+            "command": "svn.refresh",
+            "group": "navigation",
+            "when": "config.svn.enabled && scmProvider == svn"
+          },
+          {
+            "command": "svn.pickCommitMessage",
+            "group": "navigation",
+            "when": "config.svn.enabled && scmProvider == svn"
+          },
+          {
+            "command": "svn.switchBranch",
+            "when": "config.svn.enabled && scmProvider == svn"
+          },
+          {
+            "command": "svn.update",
+            "when": "config.svn.enabled && scmProvider == svn"
+          },
+          {
+            "command": "svn.patchAll",
+            "when": "config.svn.enabled && scmProvider == svn"
+          },
+          {
+            "command": "svn.resolveAll",
+            "when": "config.svn.enabled && scmProvider == svn"
+          },
+          {
+            "command": "svn.log",
+            "when": "config.svn.enabled && scmProvider == svn"
+          },
+          {
+            "command": "svn.cleanup",
+            "when": "config.svn.enabled && scmProvider == svn"
+          },
+          {
+            "command": "svn.removeUnversioned",
+            "when": "config.svn.enabled && scmProvider == svn && isSvn19orGreater"
+          },
+          {
+            "command": "svn.patchChangeList",
+            "when": "config.svn.enabled && scmProvider == svn"
+          }
+        ],
+        "scm/sourceControl": [
+          {
+            "command": "svn.close",
+            "group": "navigation",
+            "when": "scmProvider == svn"
+          }
+        ],
+        "scm/resourceGroup/context": [
+          {
+            "command": "svn.refreshRemoteChanges",
+            "when": "config.svn.enabled && scmProvider == svn && scmResourceGroup == remotechanges",
+            "group": "inline"
+          },
+          {
+            "command": "svn.refreshRemoteChanges",
+            "when": "config.svn.enabled && scmProvider == svn && scmResourceGroup == remotechanges",
+            "group": "navigation"
+          },
+          {
+            "command": "svn.update",
+            "when": "config.svn.enabled && scmProvider == svn && scmResourceGroup == remotechanges",
+            "group": "inline"
+          },
+          {
+            "command": "svn.update",
+            "when": "config.svn.enabled && scmProvider == svn && scmResourceGroup == remotechanges",
+            "group": "navigation"
+          },
+          {
+            "command": "svn.revertAll",
+            "when": "config.svn.enabled && scmProvider == svn && scmResourceGroup == changes",
+            "group": "navigation"
+          },
+          {
+            "command": "svn.revertAll",
+            "when": "config.svn.enabled && scmProvider == svn && scmResourceGroup == changes",
+            "group": "inline"
+          }
+        ],
+        "scm/resourceState/context": [
+          {
+            "command": "svn.add",
+            "when": "config.svn.enabled && scmProvider == svn && scmResourceGroup == unversioned",
+            "group": "inline"
+          },
+          {
+            "command": "svn.add",
+            "when": "config.svn.enabled && scmProvider == svn && scmResourceGroup == unversioned",
+            "group": "1_modification"
+          },
+          {
+            "command": "svn.openFile",
+            "when": "config.svn.enabled && scmProvider == svn && scmResourceGroup != external",
+            "group": "navigation"
+          },
+          {
+            "command": "svn.openHEADFile",
+            "when": "config.svn.enabled && scmProvider == svn && scmResourceGroup != unversioned && scmResourceGroup != external",
+            "group": "navigation"
+          },
+          {
+            "command": "svn.openChangeBase",
+            "when": "config.svn.enabled && scmProvider == svn && scmResourceGroup != unversioned && scmResourceGroup != external",
+            "group": "navigation"
+          },
+          {
+            "command": "svn.openChangeHead",
+            "when": "config.svn.enabled && scmProvider == svn && scmResourceGroup != unversioned && scmResourceGroup != external",
+            "group": "navigation"
+          },
+          {
+            "command": "svn.patch",
+            "when": "config.svn.enabled && scmProvider == svn && scmResourceGroup != unversioned && scmResourceGroup != external && scmResourceGroup != conflicts && scmResourceGroup != remotechanges",
+            "group": "navigation"
+          },
+          {
+            "command": "svn.resolve",
+            "when": "config.svn.enabled && scmProvider == svn && scmResourceGroup == conflicts",
+            "group": "inline"
+          },
+          {
+            "command": "svn.resolve",
+            "when": "config.svn.enabled && scmProvider == svn && scmResourceGroup == conflicts",
+            "group": "1_modification"
+          },
+          {
+            "command": "svn.changelist",
+            "when": "config.svn.enabled && scmProvider == svn && scmResourceGroup != unversioned && scmResourceGroup != external && scmResourceGroup != conflicts && scmResourceGroup != remotechanges",
+            "group": "inline"
+          },
+          {
+            "command": "svn.changelist",
+            "when": "config.svn.enabled && scmProvider == svn && scmResourceGroup != unversioned && scmResourceGroup != external && scmResourceGroup != conflicts && scmResourceGroup != remotechanges",
+            "group": "1_modification"
+          },
+          {
+            "command": "svn.commit",
+            "when": "config.svn.enabled && scmProvider == svn && scmResourceGroup != unversioned && scmResourceGroup != external && scmResourceGroup != conflicts && scmResourceGroup != remotechanges",
+            "group": "1_modification"
+          },
+          {
+            "command": "svn.revert",
+            "when": "config.svn.enabled && scmProvider == svn && scmResourceGroup != unversioned && scmResourceGroup != external && scmResourceGroup != conflicts && scmResourceGroup != remotechanges",
+            "group": "2_modification"
+          },
+          {
+            "command": "svn.revert",
+            "when": "config.svn.enabled && scmProvider == svn && scmResourceGroup != unversioned && scmResourceGroup != external && scmResourceGroup != conflicts && scmResourceGroup != remotechanges",
+            "group": "inline"
+          },
+          {
+            "command": "svn.remove",
+            "when": "config.svn.enabled && scmProvider == svn && scmResourceGroup != unversioned && scmResourceGroup != external && scmResourceGroup != conflicts && scmResourceGroup != remotechanges",
+            "group": "2_modification"
+          },
+          {
+            "command": "svn.deleteUnversioned",
+            "when": "config.svn.enabled && scmProvider == svn && scmResourceGroup == unversioned",
+            "group": "2_modification"
+          },
+          {
+            "command": "svn.addToIgnoreSCM",
+            "when": "config.svn.enabled && scmProvider == svn && scmResourceGroup == unversioned",
+            "group": "1_modification"
+          },
+          {
+            "command": "svn.treeview.pullIncomingChange",
+            "when": "config.svn.enabled && scmProvider == svn && scmResourceGroup == remotechanges",
+            "group": "inline"
+          },
+          {
+            "command": "svn.treeview.pullIncomingChange",
+            "when": "config.svn.enabled && scmProvider == svn && scmResourceGroup == remotechanges",
+            "group": "3_modification"
+          }
+        ],
+        "scm/change/title": [
+          {
+            "command": "svn.revertChange",
+            "when": "config.svn.enabled && originalResourceScheme == svn"
+          }
+        ],
+        "editor/title": [
+          {
+            "command": "svn.openFile",
+            "group": "navigation",
+            "when": "config.svn.enabled && svnOpenRepositoryCount != 0 && isInDiffEditor && resourceScheme != extension && resourceScheme != merge-conflicts.conflicts-diff"
+          },
+          {
+            "command": "svn.openChangeBase",
+            "group": "navigation",
+            "when": "config.svn.enabled && svnOpenRepositoryCount != 0 && svnActiveEditorHasChanges && !isInDiffEditor && resourceScheme == file"
+          },
+          {
+            "command": "svn.openChangeHead",
+            "group": "navigation",
+            "when": "config.svn.enabled && svnOpenRepositoryCount != 0 && svnActiveEditorHasChanges && !isInDiffEditor && resourceScheme == file"
+          }
+        ],
+        "explorer/context": [
+          {
+            "command": "svn.addToIgnoreExplorer",
+            "group": "9_svn",
+            "when": "config.svn.enabled && svnOpenRepositoryCount != 0"
+          },
+          {
+            "command": "svn.renameExplorer",
+            "group": "7_modification",
+            "when": "config.svn.enabled && svnOpenRepositoryCount != 0 && explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !inputFocus"
+          },
+          {
+            "command": "svn.changelist",
+            "group": "9_svn",
+            "when": "config.svn.enabled && svnOpenRepositoryCount != 0"
+          },
+          {
+            "command": "svn.revertExplorer",
+            "group": "7_modification",
+            "when": "config.svn.enabled && svnOpenRepositoryCount != 0"
+          }
+        ]
+      }
     },
     "configuration": {
       "title": "Svn",
