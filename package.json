@@ -121,11 +121,6 @@
           "id": "itemlog",
           "name": "File History",
           "when": "config.svn.enabled && svnOpenRepositoryCount != 0"
-        },
-        {
-          "id": "branchchanges",
-          "name": "Branch Changes",
-          "when": "config.svn.enabled && svnOpenRepositoryCount != 0"
         }
       ]
     },
@@ -718,11 +713,6 @@
         {
           "command": "svn.itemlog.refresh",
           "when": "view == itemlog",
-          "group": "navigation"
-        },
-        {
-          "command": "svn.branchchanges.refresh",
-          "when": "view == branchchanges",
           "group": "navigation"
         }
       ],

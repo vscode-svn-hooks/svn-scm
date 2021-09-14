@@ -20,7 +20,7 @@ import { Svn } from "./svn";
 import { SvnFinder } from "./svnFinder";
 import SvnProvider from "./treeView/dataProviders/svnProvider";
 import { toDisposable } from "./util";
-import { BranchChangesProvider } from "./historyView/branchChangesProvider";
+// import { BranchChangesProvider } from "./historyView/branchChangesProvider";
 import { IsSvn19orGreater } from "./contexts/isSvn19orGreater";
 import { IsSvn18orGreater } from "./contexts/isSvn18orGreater";
 import { tempSvnFs } from "./temp_svn_fs";
@@ -52,7 +52,6 @@ async function init(
     new SvnProvider(sourceControlManager),
     new RepoLogProvider(sourceControlManager),
     new ItemLogProvider(sourceControlManager),
-    new BranchChangesProvider(sourceControlManager),
     new CheckActiveEditor(sourceControlManager),
     new OpenRepositoryCount(sourceControlManager),
     new IsSvn18orGreater(info.version),
