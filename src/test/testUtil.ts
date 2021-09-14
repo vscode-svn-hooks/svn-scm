@@ -178,7 +178,7 @@ export function destroyAllTempPaths() {
 
 export function activeExtension() {
   return new Promise<void>((resolve, reject) => {
-    const extension = extensions.getExtension("robertroman.svn-scm");
+    const extension = extensions.getExtension("vscode-svn-hooks.svn-scm");
     if (!extension) {
       reject();
       return;

@@ -9,7 +9,7 @@ Your extension will need to add the following dependancy to it's package.json
 
 ```
 "extensionDependencies": [
-  "RobertRoman.svn-scm"
+  "vscode-svn-hooks.svn-scm"
 ]
 ```
 This is necessary since extensions in vscode are lazy-loaded and there is no guarantee that this extension will be initialized and availible to provide the api before yours.
@@ -25,7 +25,7 @@ Register a hook by calling this extension's API with an SVNHook:
 ```
 import {SVNHook, SVNHookApi} from 'svn-scm/src/hooks/svnHookApi';
 
-const svnApi: SVNHookApi = vscode.extensions.getExtension('RobertRoman.svn-scm')?.exports;
+const svnApi: SVNHookApi = vscode.extensions.getExtension('vscode-svn-hooks.svn-scm')?.exports;
 svnApi.registerHook(myHook);
 ```
 
