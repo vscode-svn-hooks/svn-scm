@@ -11,8 +11,10 @@
     "noUnusedParameters": true,
     "noImplicitReturns": true,
     "allowUnreachableCode": false,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "composite": true,
+    "declaration": true
   },
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "index.ts"],
   "exclude": ["node_modules"]
 }
