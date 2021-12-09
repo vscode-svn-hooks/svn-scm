@@ -1,3 +1,31 @@
+## [2.15.2](https://github.com/JohnstonCode/svn-scm/compare/v2.15.1...v2.15.2) (2021-12-09)
+
+
+### Bug Fixes
+
+* added jschardect as dep ([#1549](https://github.com/JohnstonCode/svn-scm/issues/1549)) ([3d627d3](https://github.com/JohnstonCode/svn-scm/commit/3d627d39073b77f724f1cc9be5545981501babc4))
+
+## [2.15.1](https://github.com/JohnstonCode/svn-scm/compare/v2.15.0...v2.15.1) (2021-12-09)
+
+
+### Bug Fixes
+
+* Added jschardet ([#1548](https://github.com/JohnstonCode/svn-scm/issues/1548)) ([e3dbc82](https://github.com/JohnstonCode/svn-scm/commit/e3dbc821a3ac20b74a7dc0902f995187608258dd))
+
+# [2.15.0](https://github.com/JohnstonCode/svn-scm/compare/v2.14.0...v2.15.0) (2021-11-08)
+
+
+### Features
+
+* Added Merge command ([#1540](https://github.com/JohnstonCode/svn-scm/issues/1540)) ([87060b3](https://github.com/JohnstonCode/svn-scm/commit/87060b36021361c1d99c29a91b8a22b5b1f34d09))
+
+# [2.14.0](https://github.com/JohnstonCode/svn-scm/compare/v2.13.6...v2.14.0) (2021-10-07)
+
+
+### Features
+
+* Support SVN_ASP_DOT_NET_HACK env variable ([#1174](https://github.com/JohnstonCode/svn-scm/issues/1174)) ([86c36d2](https://github.com/JohnstonCode/svn-scm/commit/86c36d2166c9e483d2470b088f9cb34c0beb0b81))
+
 ## [2.13.6](https://github.com/JohnstonCode/svn-scm/compare/v2.13.5...v2.13.6) (2021-05-31)
 
 

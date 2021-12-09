@@ -45,6 +45,7 @@ import {
   dispose,
   eventToPromise,
   filterEvent,
+  getSvnDir,
   isDescendant,
   isReadOnly,
   timeout,
@@ -740,7 +741,7 @@ export class Repository implements IRemoteRepository {
     }
 
     // Not has original resource for content of ".svn" folder
-    if (isDescendant(path.join(this.root, ".svn"), uri.fsPath)) {
+    if (isDescendant(path.join(this.root, getSvnDir()), uri.fsPath)) {
       return;
     }
 
@@ -813,6 +814,17 @@ export class Repository implements IRemoteRepository {
   public async switchBranch(name: string, force: boolean = false) {
     await this.run(Operation.SwitchBranch, async () => {
       await this.repository.switchBranch(name, force);
+      this.updateRemoteChangedFiles();
+    });
+  }
+
+  public async merge(
+    name: string,
+    reintegrate: boolean = false,
+    accept_action: string = "postpone"
+  ) {
+    await this.run(Operation.Merge, async () => {
+      await this.repository.merge(name, reintegrate, accept_action);
       this.updateRemoteChangedFiles();
     });
   }
