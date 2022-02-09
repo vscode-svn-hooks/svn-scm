@@ -17,7 +17,7 @@ This is necessary since extensions in vscode are lazy-loaded and there is no gua
 Import the definitions from [svnHookApi.ts](./src/hooks/svnHookApi.ts) into your project.
 
 ```
-npm i "https://github.com/rroman6174/svn-scm.git"
+npm i "https://github.com/vscode-svn-hooks/svn-scm.git"
 ```
 
 Register a hook by calling this extension's API with an SVNHook:
@@ -62,11 +62,11 @@ If you use [TortoiseSVN](https://tortoisesvn.net/), make sure the option
 ## Feedback & Contributing
 
 * Please report any bugs, suggestions or documentation requests via the
-  [Issues](https://github.com/rroman6174/svn-scm/issues)
+  [Issues](https://github.com/vscode-svn-hooks/svn-scm/issues)
 * Feel free to submit
-  [pull requests](https://github.com/rroman6174/svn-scm/pulls)
+  [pull requests](https://github.com/vscode-svn-hooks/svn-scm/pulls)
 
-## [Contributors](https://github.com/rroman6174/svn-scm/graphs/contributors)
+## [Contributors](https://github.com/vscode-svn-hooks/svn-scm/graphs/contributors)
 
 # Features
 
